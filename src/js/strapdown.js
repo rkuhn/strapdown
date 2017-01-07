@@ -1,4 +1,4 @@
-/* global jQuery, marked, prettyPrint */
+/* global jQuery, marked, prettyPrint, he */
 (function( $ ) {
   'use strict';
 
@@ -43,7 +43,7 @@
       var newNode = document.createElement('div');
       newNode.className = 'navbar navbar-inverse navbar-fixed-top';
       newNode.innerHTML = '<div class="container"> <div class="navbar-header">' +
-                          (settings.toc ? navbarCollapseBtn + navbarTitle + tocInsertionPoint : navbarTitle) +
+                          (settings.toc && !settings.toc.disabled ? navbarCollapseBtn + navbarTitle + tocInsertionPoint : navbarTitle) +
                           '</div> </div>';
 
       if (settings.toc) {
@@ -54,7 +54,7 @@
     },
 
     updateBody: function (contentEl, settings) {
-      var markdown = contentEl.text(),
+      var markdown = he.encode(contentEl.text(), { allowUnsafeSymbols: true, useNamedReferences: true }),
           newContentEl = (settings.dest ? $(settings.dest) : null)
           ;
 
@@ -67,7 +67,8 @@
       }
 
       // Generate Markdown
-      newContentEl.html(marked(markdown));
+      const md = marked(markdown);
+      newContentEl.html(md);
 
       // Prettify
       if (prettyPrint) {

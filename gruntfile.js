@@ -22,7 +22,8 @@
 			'vendor/jquery/dist/jquery.min.js',
 			'vendor/marked/marked.min.js',
 			'vendor/google-code-prettify/bin/prettify.min.js',
-			'vendor/bootstrap/js/scrollspy.js'
+			'vendor/bootstrap/js/scrollspy.js',
+      'vendor/he/he.js'
 		];
 
 		grunt.initConfig({
@@ -159,7 +160,7 @@
 		grunt.registerTask('test',           ['jshint', 'qunit']);
 		grunt.registerTask('build',          ['concat', 'less']);
 		grunt.registerTask('default',        ['clean', 'copy', 'preprocess:release', 'build', 'uglify']);
-		grunt.registerTask('watch',          ['clean', 'copy', 'test', 'preprocess:dev', 'build', 'delta']);
+		grunt.registerTask('watch',          ['clean', 'copy', 'preprocess:dev', 'build', 'delta']);
 
 	};
 })();

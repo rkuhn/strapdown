@@ -19,6 +19,7 @@
     "prettify": "*",
     "bootswatch": "~3.2.0",
     "google-code-prettify": "~1.0.2",
-    "qunit": "~1.15.0"
+    "qunit": "~1.15.0",
+    "he": "~1.1.0"
   }
 }
