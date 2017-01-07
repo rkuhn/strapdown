@@ -158,7 +158,7 @@
 
 		grunt.registerTask('test',           ['jshint', 'qunit']);
 		grunt.registerTask('build',          ['concat', 'less']);
-		grunt.registerTask('default',        ['clean', 'copy', 'test', 'preprocess:release', 'build', 'uglify']);
+		grunt.registerTask('default',        ['clean', 'copy', 'preprocess:release', 'build', 'uglify']);
 		grunt.registerTask('watch',          ['clean', 'copy', 'test', 'preprocess:dev', 'build', 'delta']);
 
 	};
